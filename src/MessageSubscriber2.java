@@ -1,7 +1,6 @@
-public class MessageSubscriber1 implements IObserver{
+public class MessageSubscriber2 implements IObserver{
     @Override
     public void update(Message msg) {
-        System.out.println("message : " + msg.getMessageContent());
-
+        System.out.println("subscriber2 : " + msg.getMessageContent());
     }
 }

@@ -1,11 +1,18 @@
-public class MessagePublisher1 {
-    // ajoute
+public class MessagePublisher2 implements IObservable{
+    @Override
+    public void ajoute(IObserver o) {
 
-    // supprimer
+    }
+    @Override
+    public void supprimer(IObserver o) {
 
-    //NotifierTout
+    }
+    @Override
+    public void NotifierTout(Message msg1) {
 
-    //CompterObservers
-
-
+    }
+    @Override
+    public int CompterObservers() {
+        return 0;
+    }
 }

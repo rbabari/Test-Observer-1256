@@ -2,16 +2,24 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Entrée with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Observable ::: message publisher x 2
+        IObservable p1 = new MessagePublisher1();
+        // Observer :: subscrubers(abonnée) x 5
+        IObserver s1 = new MessageSubscriber1();
+        IObserver s2 = new MessageSubscriber2();
+        // Subscriber s'abonner au publisher
+         p1.ajoute(s1);
+         p1.ajoute(s2);
+        System.out.println("nombre de soubscribers : " + p1.CompterObservers()); // m'attendre 2
+        p1.NotifierTout(new Message("premier message"));
+        p1.NotifierTout(new Message("deuxieme message"));
 
-        // Press Maj+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        p1.supprimer(s1);
+        System.out.println("nombre de soubscribers : " + p1.CompterObservers()); // m'attendre 1
+        p1.NotifierTout(new Message("troisieme messsage"));
 
-            // Press Maj+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        // Notifier les subscribers
+
     }
+
 }
